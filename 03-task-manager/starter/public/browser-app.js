@@ -15,6 +15,7 @@ const showTasks = async () => {
       loadingDOM.style.visibility = 'hidden'
       return
     }
+
     const allTasks = tasks
       .map((task) => {
         const { completed, _id: taskID, name } = task
@@ -53,6 +54,7 @@ tasksDOM.addEventListener('click', async (e) => {
   if (el.parentElement.classList.contains('delete-btn')) {
     loadingDOM.style.visibility = 'visible'
     const id = el.parentElement.dataset.id
+    console.log(id);
     try {
       await axios.delete(`/api/v1/tasks/${id}`)
       showTasks()
@@ -66,7 +68,7 @@ tasksDOM.addEventListener('click', async (e) => {
 // form
 
 formDOM.addEventListener('submit', async (e) => {
-  e.preventDefault()
+  e.preventD0efault()
   const name = taskInputDOM.value
 
   try {
